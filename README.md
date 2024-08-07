@@ -28,7 +28,9 @@ You should also have the Visual Studio code extension for the language used for 
 
 ## Download sample repository
 
-1. In a terminal, use git to fork and clone this repository to your local computer:
+1. On GitHub, fork the repository.
+
+1. In a terminal, use git to clone this repository to your local computer:
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-search-static-web-app
@@ -40,11 +42,11 @@ You should also have the Visual Studio code extension for the language used for 
 
 Use any one of the following language versions to build the good-books index. Instructions are provided in individual readme files. All of these programs assume Visual Studio Code as the IDE with the appropriate language extensions and executables.
 
-* [bulk-insert/dotnet/readme](/bulk-insert/python/readme.md)
+* [/dotnet/bulk-insert/readme](/dotnet/bulk-insert/readme.md)
 
-* [bulk-insert/javascript/readme](/bulk-insert/javascript/readme.md)
+* [/javascript/bulk-insert/readme](/javascript/bulk-insert/readme.md)
 
-* [bulk-insert/python/readme](/bulk-insert/python/readme.md)
+* [/python/bulk-insert/readme](/python/bulk-insert/readme.md)
 
 To run any of these programs, you need the search endpoint and [API keys](https://learn.microsoft.com/azure/search/search-security-api-keys#find-existing-keys). You can find this information in the Azure portal.
 
@@ -92,7 +94,7 @@ The client folder provides the source for the static web app. You can deploy the
    * Select the **Actions** tab in your forked repository. You should see a list of all workflows on your fork.
    * Select the **Azure: Activity Log** in Visual Code. You should see a message similar to the following screenshot.
 
-1. It's expected that the workflow succeeds. Howerver, you must *edit the workflow YML file to change the folder delimiter character in the folder path to the Azure function code*. You can perform this step as soon as the YML file is created. A new workflow launches as soon as you push the updates.
+1. It's expected that the workflow succeeds. Howerver, you must *edit the workflow YML file to change the folder delimiter character in the api-location folder path*. By default, the Git workflow builds the YML file using a backward slash file delimiter. You need to change the backward slash to a forward slash. You can perform this step as soon as the YML file is created. A new workflow launches as soon as you push the updates.
 
    1. In Visual Studio Code explorer, open the `./.github/workflows/` directory.
 
@@ -100,7 +102,7 @@ The client folder provides the source for the static web app. You can deploy the
 
    1. Scroll to the `api-location` path (on or near line 31).
 
-   1. By default, the Git workflow builds the YML file using a backward slash file delimiter. Change the backward slash to a forward slash for `api_location`. This is the only line that needs editing, other locations are here for context:
+   1. Replace the backslash (`/dotnet\api`) with a forward slash (`/dotnet/api`). This is the only line that needs editing, other locations are here for context:
 
       ```yml
       app_location: "/client" # App source code path
